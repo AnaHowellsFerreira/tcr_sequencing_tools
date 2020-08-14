@@ -15,7 +15,7 @@
 #		specified in the program output should return an empty result
 
 #   Load appropriate libraries
-library(digest);
+library(digest, lib.loc ="/home/exacloud/lustre1/CompBio/data/tcrseq/dhaarini/from_tempwork/myRPkg");
 
 #	get appropriate command line directories
 arguments <- commandArgs(trailingOnly=TRUE);

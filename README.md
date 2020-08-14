@@ -175,7 +175,7 @@ The Core places the files on their IGL server, nix (formerly mpssr). You will ne
      ```
      ~% pwd
      /path/to/data/tcrseq/dhaarini/DNAXXXXLC
-     ~% rsync -r username@mpssr1:/projects/DNAXXXXLC/150*/DNAXXXXLC
+     ~% rsync -rv FastQC/* username@exacloud.ohsu.edu:/home/exacloud/lustre1/CompBio/data/tcrseq/dhaarini/DNAXXXXLC/fastqs_from_core
      /path/to/tcrseq/dhaarini/DNAXXXXLC/fastqs\_from\_core/fastqs
      ```
 1. Use the instructions provided by the Core to find the files on the IGL server.  (You can ssh into the server if necessary – the Core typically provides a temporary password giving you access for ~two weeks.)
@@ -248,7 +248,7 @@ and an sbatch script that will submit the program to the job scheduler. A few mo
 ~$ vi 02_sbatchUnzip.sh
 < change --array argument to be 0-X, where X is the largest tens place in your files. 130 files would be 0-13 >
 ~$ sbatch 01_sbatchUnzip.sh
-~$ mv unzip\* $data/slurm_logs/setup/ 
+~$ mv unzip_* $data/slurm_logs/setup/ 
 ```
 
 After each step, move the .out and .err files to the appropriate log directory.
