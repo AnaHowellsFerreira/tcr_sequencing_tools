@@ -7,6 +7,8 @@
 ####################
 ### DEPENDENCIES ###~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ####################
+### Load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
 
 library(wrh.rUtils)
 library(optparse)

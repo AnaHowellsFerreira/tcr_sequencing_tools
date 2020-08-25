@@ -59,7 +59,7 @@ for i in {0..6}; do
     echo "Current group designation: " $CURRGRP
     echo "Current output directory: " $OUT/$CURRDIR/
 
-    cmd="/usr/bin/Rscript $MYBIN -i $IN1 -f $IN2 -d $CURRGRP -o $OUT/$CURRDIR/ -l F" 
+    cmd="/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/bin/bin/Rscript $MYBIN -i $IN1 -f $IN2 -d $CURRGRP -o $OUT/$CURRDIR/ -l F" 
 
     echo $cmd
     eval $cmd

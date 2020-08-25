@@ -10,6 +10,9 @@
         ### old_v - TRUE - use old normalization method; FALSE - use new normalization method
 
 ### Load necessary libraries
+### Load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
+
 suppressMessages(library(entropy))
 suppressMessages(library(data.table))
 suppressMessages(library(tcR))

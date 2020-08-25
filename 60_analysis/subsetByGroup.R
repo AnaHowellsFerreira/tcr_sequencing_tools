@@ -6,7 +6,9 @@
 
 ### Take normalized clone count files and subset them based on the information in the freqGroups file
 
-### Dependencies
+### Load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
+
 suppressMessages(library(data.table))
 suppressMessages(library(optparse))
 source("/home/exacloud/lustre1/users/hortowe/2016_11_27_stable_repos/WesPersonal/utilityFxns.R")

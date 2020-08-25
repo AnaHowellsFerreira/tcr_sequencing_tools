@@ -16,12 +16,9 @@
 #   1.  A fastq file, with the specified reads removed
 #   2.  A text file reporting the work done by this script
 
-#   load depdencies
-#.libPaths("/mnt/lustre1/CompBio/lib/R/library")
-### Loading ShortRead should load BiocParallel, but I was getting a weird error and this fixed it.
-library(BiocParallel, lib.loc="/home/exacloud/lustre1/CompBio/data/tcrseq/dhaarini/from_tempwork/myRPkg") 
+#   load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
 suppressMessages(suppressWarnings(library(ShortRead)));
-#library(stringr);
 suppressMessages(library(data.table));
 
 ###   TODO: handle warnings more better.  At least read.delim() is generating warnings

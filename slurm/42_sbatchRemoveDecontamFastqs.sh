@@ -45,7 +45,7 @@ printf "\n\n"
 
 mkdir -p $OUT
 
-cmd="/usr/bin/Rscript $MYBIN $FASTQ $IDS $OUT $KEEP" 
+cmd="/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/bin/bin/Rscript $MYBIN $FASTQ $IDS $OUT $KEEP" 
 
 echo $cmd
 eval $cmd

@@ -1,8 +1,8 @@
 #   Rscript that performs QC on the frameshift and stop codon removal step in
 #       the TCRseq analysis pipeline.
 #
-#	Import required libraries
-#
+### Load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
 library(stringr);
 
 arguments <- commandArgs(trailingOnly=TRUE);

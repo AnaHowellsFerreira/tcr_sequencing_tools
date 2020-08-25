@@ -61,8 +61,8 @@ printf "\n\n"
 RAWCLONE=$IN/$CURRFILE
 
 
-cmd="/usr/bin/Rscript $MYBIN $RAWCLONE $SPIKECOUNTS $NORMDIR $ORIGSCALE $NBSCALE"
-cmd="/usr/bin/Rscript $MYBIN -i $RAWCLONE -o $OUT -q $QC"
+cmd="/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/bin/bin/Rscript $MYBIN $RAWCLONE $SPIKECOUNTS $NORMDIR $ORIGSCALE $NBSCALE"
+cmd="/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/bin/bin/Rscript $MYBIN -i $RAWCLONE -o $OUT -q $QC"
 
 echo $cmd
 eval $cmd

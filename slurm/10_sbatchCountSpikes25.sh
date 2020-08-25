@@ -15,7 +15,7 @@
 #SBATCH --time               0-24:00                 # time (D-HH:MM)
 #SBATCH --output             countSpikes25_%A_%a.out        # Standard output
 #SBATCH --error              countSpikes25_%A_%a.err        # Standard error
-#SBATCH --array              1-6                    # sets number of jobs in array
+#SBATCH --array              1-102                    # sets number of jobs in array
 
 
 ### SET I/O VARIABLES
@@ -64,7 +64,7 @@ printf "\n\n"
 
 ### Execute
 
-cmd="/usr/bin/Rscript $MYBIN $IN/$CURRFILE $REF/text_barcodesvj.txt 25 $OUT" 
+cmd="/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/bin/Rscript $MYBIN $IN/$CURRFILE $REF/text_barcodesvj.txt 25 $OUT" 
 
 echo $cmd
 eval $cmd

@@ -44,7 +44,7 @@ printf "\n\n"
 
 mkdir -p $QC
 
-cmd="/usr/bin/Rscript $MYBIN $IN $OUT $QC both NULL" 
+cmd="/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/bin/bin/Rscript $MYBIN $IN $OUT $QC both NULL" 
 
 echo $cmd
 eval $cmd

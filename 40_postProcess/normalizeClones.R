@@ -12,6 +12,9 @@
 #   4.  Spiked reads are supposed to be present in the exact same frequency
 
 
+
+#   load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
 #	Ensure that numeric outputs are not expressed in scientific notation
 options(scipen=999);
 suppressMessages(require(data.table))

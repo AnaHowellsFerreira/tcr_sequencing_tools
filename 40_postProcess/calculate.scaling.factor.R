@@ -3,9 +3,12 @@
 ###   The factor is calculated using counts of EACH spike for ALL samples
 ###   The calculated scaling factor should be applied to each sample's spike count
 
+#   load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
+
+library(data.table)
 
 ### Get command line arguments
-library(data.table)
 arguments <- commandArgs(trailingOnly=TRUE);
 spike.count.dir <- arguments[1];	# DNAXXXXLC/normalization/counts/
 ref.file <- arguments[2];		# /tcr_sequencing_tools/reference/text_barcodesvj.txt

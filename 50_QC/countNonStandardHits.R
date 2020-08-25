@@ -4,7 +4,8 @@
 
 ### MiXCR can align to regions that we do not specifically amplify for. We would like to summarize the amounts of different regions.
 
-### Dependencies
+### Load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
 suppressMessages(require(data.table))
 
 ### Arguments

@@ -7,7 +7,9 @@
 ### Take a batch of clone files, combine all of the files togther, and group them by their different frequencies
 
 print("Start")
-### Dependencies
+### Load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
+
 suppressMessages(library(data.table))
 suppressMessages(library(optparse))
 suppressMessages(library(ggplot2))

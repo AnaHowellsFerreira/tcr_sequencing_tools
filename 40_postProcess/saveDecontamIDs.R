@@ -1,7 +1,8 @@
 ####################################################
 ### Remove monoclonal contamination from samples ###
 ####################################################
-
+#   load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
 library(data.table)
 
 # We have three monoclonal sequences that have been used at various points throughout the project. After their introduction, 

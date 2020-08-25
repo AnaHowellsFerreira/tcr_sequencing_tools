@@ -50,7 +50,7 @@ mkdir -p $OUT
 CUTOFF=1
 OLD=F
 
-cmd="/usr/bin/Rscript $MYBIN --inputDir $IN --outputDir $OUT --cutOff $CUTOFF --qcDir $QC --old $OLD" 
+cmd="/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/bin/bin/Rscript $MYBIN --inputDir $IN --outputDir $OUT --cutOff $CUTOFF --qcDir $QC --old $OLD" 
 
 echo $cmd
 eval $cmd

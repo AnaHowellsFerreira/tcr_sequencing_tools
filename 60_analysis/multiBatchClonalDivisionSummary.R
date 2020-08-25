@@ -14,7 +14,9 @@
 	### TRUE/FALSE if pdf and text output should be written
 ### Note, this does everything that the homeoAnalysis.R does, plus more.
 
-###   Load necessary libraries
+### Load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
+
 print("Start")
 suppressMessages(library(entropy))
 suppressMessages(library(data.table))

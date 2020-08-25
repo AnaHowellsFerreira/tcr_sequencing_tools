@@ -72,7 +72,7 @@ printf "\n\n"
 
 ### Execute
 
-cmd="/usr/bin/Rscript $MYBIN $RAWCLONE $SPIKECOUNTS $NORMDIR $ORIGSCALE $NBSCALE"
+cmd="/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/bin/bin/Rscript $MYBIN $RAWCLONE $SPIKECOUNTS $NORMDIR $ORIGSCALE $NBSCALE"
 
 echo $cmd
 eval $cmd

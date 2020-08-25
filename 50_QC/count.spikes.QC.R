@@ -4,6 +4,8 @@
 #       some visualization, analysis, etc. once the data is aggregated
 
 ### Get command-line arguments
+#   load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
 library(data.table)
 arguments <- commandArgs(trailingOnly=TRUE);
 

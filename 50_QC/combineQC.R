@@ -2,6 +2,8 @@
 ### Combine all of the QC files into an excel workbook
 ###
 
+#   load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
 library(data.table)
 library(xlsx)
 

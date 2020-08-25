@@ -1,7 +1,8 @@
-#   Script that assesses quality of the "remove spikes" step in the TCRseq
-#       pipeline
+#   Script that assesses quality of the "remove spikes" step in the TCRseq pipeline
+# Get command line arguments
 
-                                        # Get command line arguments
+### Load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
 library(data.table)
 arguments <- commandArgs(trailingOnly=TRUE);
 path.to.raw.fastqs <- arguments[1];		# /DNAXXXXLC/peared_fastqs/assembled/

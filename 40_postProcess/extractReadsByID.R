@@ -5,7 +5,8 @@
 ### Given a fastq file and a one-column text file of read IDs, extract from the fastq file all of the corresponding read information for the reads
 ### in the read ID file. Output into a fastq file containing only those reads specified in the read IDs file.
 
-### load depdencies
+#   load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
 library(ShortRead);
 library(stringr);
 library(data.table)

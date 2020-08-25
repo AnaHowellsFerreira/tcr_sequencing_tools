@@ -2,8 +2,6 @@
 ### Remove monoclonal contamination from samples ###
 ####################################################
 
-library(data.table)
-
 # We have three monoclonal sequences that have been used at various points throughout the project. After their introduction, 
 # we have noticed an overabundance of their presence in later samples. This script searches through clone files exported by
 # Mixcr exportClones using the V identity, J identity, and AA sequence of the three clonal contaminants and removes them from
@@ -21,6 +19,10 @@ library(data.table)
 ##############
 ### Set Up ###
 ##############
+
+#   load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
+library(data.table)
 
 arguments <- commandArgs(trailingOnly = T)
 

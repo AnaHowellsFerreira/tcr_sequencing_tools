@@ -11,6 +11,8 @@
 options(scipen=999);
 
 ###   load required libraries
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
+
 library(data.table)
 #library(stringr);
 

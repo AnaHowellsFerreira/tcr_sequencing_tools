@@ -34,6 +34,8 @@
 ### DEPENDENCIES ###~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ####################
 
+### Load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
 suppressMessages(library(entropy))
 suppressMessages(library(data.table))
 suppressMessages(library(tcR))

@@ -12,7 +12,8 @@
   ### Cj is the sum of all clone counts in sample j
   ### medain[C(1k)...C(jk)] is the median of the sums of all samples 1..j in all batches k
 
-### Dependencies
+###  Load dependencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
 suppressMessages(library(data.table))
 library(optparse)
 suppressMessages(library(affy))

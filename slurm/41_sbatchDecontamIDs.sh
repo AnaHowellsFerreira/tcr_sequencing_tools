@@ -44,7 +44,7 @@ printf "\n\n"
 
 mkdir -p $OUT
 
-cmd="/usr/bin/Rscript $MYBIN $CLONE $ALIGN $OUT" 
+cmd="/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/bin/bin/Rscript $MYBIN $CLONE $ALIGN $OUT" 
 
 echo $cmd
 eval $cmd
