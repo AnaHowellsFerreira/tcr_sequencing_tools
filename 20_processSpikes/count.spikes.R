@@ -10,6 +10,7 @@
 #       equals 9
 #
 #   load depdencies
+#.libPaths("/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/library")
 
 suppressMessages(suppressWarnings(library(ShortRead)));
 suppressMessages(library(data.table));

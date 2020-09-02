@@ -65,7 +65,7 @@ printf "\n\n"
 ### Execute
 
 # Rscript_PATH: updated path to run script using R version and packages user installed
-cmd="/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/bin/bin/Rscript $MYBIN $IN/$CURRFILE $REF/text_barcodesvj.txt 9 $OUT" 
+cmd="/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/bin/Rscript $MYBIN $IN/$CURRFILE $REF/text_barcodesvj.txt 9 $OUT" 
 
 echo $cmd
 eval $cmd

@@ -3,10 +3,104 @@ TCRseq_tools
 
 This repository contains all of the tools needed to run a TCRseq pipeline from accessing the files on nix (formerly mpssr) to performing QC on output.
 
+PIPELINE OVERVIEW
+=================
+
+This overview of the pipeline connects the scripts being run in each step along with the directories which results
+are being sent to.
+
+```
+
+├── 1. Update bash profile
+    ├── $data
+    └──$tool
+├── 2. Set up directory structure
+    ├──fastqs_from_core/  
+    ├──gliph/  
+    ├──normalization/  
+    ├──QC/
+    ├──freqGroups/  
+    ├──mixcr/  
+    ├──peared_fastqs/
+    ├──spike_counts/
+    ├──slurm_logs/
+    └──tools/
+├── 3. Copy files from nix to exacloud
+    ├── 00.sbatchmd5.sh 
+        ├──IN=$data/fastqs_from_core/fastqs/
+        └── MYBIN=$tool/10_preProcess/00_process.md5.R 
+├── 4. run MultiQC
+├── 5. Rename files
+    └── 01_rename_fastqs.R
+├── 6. Unzip files for downstream analysis
+    └── 02_sbatchUnzip.sh
+        └──IN=$data/fastqs_from_core/fastqs 
+├── 7. Run PEAR to concatenate files
+    └── 03_sbatchPear.sh 
+        ├──IN=$data/fastqs_from_core/fastqs
+        ├──OUT=$data/peared_fastqs/ 
+        ├──MYBIN=$tool/10_preProcess/03_pear.pl
+        └──QC=$data/QC/pear/
+├── 8. Process spikes
+    ├── Count
+    │   ├── 9bp
+    │   |   └──10.sbatCountSpikes9.sh
+    │   |      ├──IN=$data/peared_fastqs/assembled
+    │   |      ├──OUT=$data/spike_counts/9bp/ 
+    │   |      └──MYBIN=$tool/20_processSpikes/count.spikes.R
+    │   └── 25bp
+    │       └──10.sbatCountSpikes25.sh
+    │           ├──IN=$data/peared_fastqs/assembled
+    │           ├──OUT=$data/spike_counts/25bp/ 
+    │           └──MYBIN=$tool/20_processSpikes/count.spikes.R
+    └── Remove
+        └── 20.sbsbatRemoveSpikes.sh 
+            ├──IN=$data/peared_fastqs/assembled 
+            ├──TOREM=$data/spike_counts/9bp/reads_to_remove
+            ├──OUT=$data/mixcr/despiked_fastqs
+            ├──REMOUT=$data/spike_counts/9bp/spikes
+            └──MYBIN=$tool/20_processSpikes/remove.spikes.R 
+
+├── 9. Identify Clotypes
+    ├── DNA
+    |   ├── 30_sbatchMixcrAlign.sh
+    |   |   ├── IN=$data/mixcr/despiked_fastqs
+    |   |   ├── OUT=$data/mixcr/
+    |   |   └── PRESET=$tool/30_mixcr/analyze_preset.txt
+    |   ├── 40_sbatchMixcrAssemble.sh
+    |   |   ├── IN=$data/mixcr/export_clones/
+    |   |   ├── OUT=$data/normalization/decontam/
+    |   |   └── MYBIN=$tool/40_postProcess/decontaminateClones.R
+    |   └── 60_sbatchMixcrExportClones.sh
+    |       └── MYBIN=$tool/50_QC/runQC.sh
+    └── RNA
+        ├── 31_sbatchMixcrAlignRNAseq.sh
+        ├── 41_sbatchMixcrAssemblePartial1.sh
+        ├── 42_sbatchMixcrAssemblePartial2.sh
+        ├── 51_sbatchMixcrExtendAlign.sh
+        ├── 55_sbatchMixcrAssemble.sh
+        └── 60_sbatchMixcrExportClones.sh
+            └── MYBIN=$tool/50_QC/runQC.sh
+├── 10. Decontaminate
+    └── 40_sbatchDecontaminate.sh
+├── 11. Normalize
+    ├── calculate.scaling.factor.R
+    └── 50_sbatchNormalize.sh
+├── 12. PostProcess
+    └── 60_sbatchQC.sh
+├── 13. Analyze
+    ├── 70_sbatchDiversityAnalysis.sh
+    └── 80_sbatchClonalDivisionSummary.sh
+├── 14. Generate summary Output
+├── 15. Report and communicate
+
+
+```
+
 GENERAL NOTES
 ==============
 
-1. Remember to create an interactive job on ExaCloud when running interactive and computationally-intensive jobs.  For example:
+Remember to create an interactive job on ExaCloud when running interactive and computationally-intensive jobs.  For example:
 
      `~% condor_submit -interactive -append 'request_memory = 10 GB' -append 'request_cpus = 4'`  
 
@@ -52,7 +146,7 @@ DIRECTORY SET UP AND ENV VARS
     d. In the directory you created, create the following folder structure by calling `~$ sh $tool/misc/setup.sh`. If you are running an RNAseq analysis, just add any character string as an argument, in order to get the appropriate directory structre: `~$ sh $tool/misc/setup.sh y`.
 
 ```
-        .
+        
         ├── condor_logs
         │   ├── mixcr
         │   │   ├── align
@@ -123,7 +217,7 @@ DIRECTORY SET UP AND ENV VARS
         │   ├── baseLine
         │   ├── groupData
         │   ├── overLapResults
-	│   └── treatSpecificClones
+	    └── treatSpecificClones
         ├── gliph
         │   ├── byTreat
         │   │   ├── clones
@@ -131,7 +225,7 @@ DIRECTORY SET UP AND ENV VARS
         │   ├── specificTreat
         │   │   ├── clones
         │   │   └── results
-	│   └── todo
+	    └── todo
         └── tools
             ├── condor_formats
             │   ├── 01_format.unzip.R
@@ -247,7 +341,7 @@ and an sbatch script that will submit the program to the job scheduler. A few mo
 ~$ cd $data/tools/slurm
 ~$ vi 02_sbatchUnzip.sh
 < change --array argument to be 0-X, where X is the largest tens place in your files. 130 files would be 0-13 >
-~$ sbatch 01_sbatchUnzip.sh
+~$ sbatch 02_sbatchUnzip.sh
 ~$ mv unzip_* $data/slurm_logs/setup/ 
 ```
 

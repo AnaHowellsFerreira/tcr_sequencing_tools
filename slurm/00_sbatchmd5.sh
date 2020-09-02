@@ -41,7 +41,7 @@ echo "SLURM_TASKS_PER_NODE " $SLURM_TASKS_PER_NODE
 printf "\n\n"
 
 
-cmd="/usr/bin/Rscript $MYBIN $IN" 
+cmd="/home/exacloud/gscratch/CoussensLab/howellsf/R-4.0.2/bin/Rscript $MYBIN $IN" 
 
 echo $cmd
 eval $cmd

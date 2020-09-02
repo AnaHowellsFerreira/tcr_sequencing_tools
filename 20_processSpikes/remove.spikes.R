@@ -56,7 +56,7 @@ if(file.size.to.remove > 0)	{
     ids.to.remove <- fread(reads.to.remove, sep = '\t')$Reads
 
     ##   Add alternate version in case header is different
-                                        #    alt.ids.to.remove <- str_replace(ids.to.remove, " 1", " 2");
+    #    alt.ids.to.remove <- str_replace(ids.to.remove, " 1", " 2");
     alt.ids.to.remove <- gsub(" 1", " 2", ids.to.remove)
     ids.to.remove <- c(ids.to.remove, alt.ids.to.remove);
 }   #   fi
