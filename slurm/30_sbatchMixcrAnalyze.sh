@@ -11,14 +11,14 @@
 #SBATCH --time               0-24:00                    # time (D-HH:MM)
 #SBATCH --output             mixcr_analyze_%A_%a.out    # Standard output
 #SBATCH --error              mixcr_analyze_%A_%a.err    # Standard error
-#SBATCH --array              1-1                        # sets number of jobs in array
+#SBATCH --array              1-102                       # sets number of jobs in array
 
 ### Set I/O variables
 
 IN=$data/mixcr/despiked_fastqs             # Directory containing all input files. Should be one job per file
 OUT=$data/mixcr/           # Directory where output files should be written
 REPORTDIR=$data/mixcr/reports/
-MYBIN=$MIXCR/mixcr.jar          # Path to shell script or command-line executable that will be used
+MYBIN=$tool/30_mixcr/mixcr-3.0.3/mixcr.jar           # Path to shell script or command-line executable that will be used
 PRESET=$tool/30_mixcr/analyze_preset.txt
 SPECIES="mmu"
 
@@ -70,7 +70,7 @@ cmd="/usr/bin/java -Xmx15g -jar $MYBIN analyze amplicon \
 echo $cmd
 eval $cmd
 
-### Move output files
+### Move output files 
 mv $EXPORT\.clna $OUT/clna/
 mv $EXPORT\.vdjca $OUT/vdjca/
 mv $EXPORT\.clonotypes.TRB.txt $OUT/export_clones

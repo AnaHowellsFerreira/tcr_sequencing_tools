@@ -62,27 +62,20 @@ are being sent to.
             └──MYBIN=$tool/20_processSpikes/remove.spikes.R 
 
 ├── 9. Identify Clotypes
-    ├── DNA
-    |   ├── 30_sbatchMixcrAlign.sh
-    |   |   ├── IN=$data/mixcr/despiked_fastqs
-    |   |   ├── OUT=$data/mixcr/
-    |   |   └── PRESET=$tool/30_mixcr/analyze_preset.txt
-    |   ├── 40_sbatchMixcrAssemble.sh
-    |   |   ├── IN=$data/mixcr/export_clones/
-    |   |   ├── OUT=$data/normalization/decontam/
-    |   |   └── MYBIN=$tool/40_postProcess/decontaminateClones.R
-    |   └── 60_sbatchMixcrExportClones.sh
-    |       └── MYBIN=$tool/50_QC/runQC.sh
-    └── RNA
-        ├── 31_sbatchMixcrAlignRNAseq.sh
-        ├── 41_sbatchMixcrAssemblePartial1.sh
-        ├── 42_sbatchMixcrAssemblePartial2.sh
-        ├── 51_sbatchMixcrExtendAlign.sh
-        ├── 55_sbatchMixcrAssemble.sh
-        └── 60_sbatchMixcrExportClones.sh
-            └── MYBIN=$tool/50_QC/runQC.sh
+    └── DNA
+       ├── 30_sbatchMixcrAlign.sh
+       ├── IN=$data/mixcr/despiked_fastqs
+       ├── OUT=$data/mixcr/
+       ├── REPORTDIR=$data/mixcr/reports/
+       ├── PRESET=$tool/30_mixcr/analyze_preset.txt
+       └── MYBIN=$tool/30_mixcr/mixcr-3.0.3/mixcr.jar
 ├── 10. Decontaminate
     └── 40_sbatchDecontaminate.sh
+          ├── IN=$data/mixcr/export_clones/
+          ├── OUT=$data/normalization/decontam/
+          ├── QC=$data/QC/std/
+          └── MYBIN=$tool/40_postProcess/decontaminateClones.R
+
 ├── 11. Normalize
     ├── calculate.scaling.factor.R
     └── 50_sbatchNormalize.sh
@@ -93,7 +86,6 @@ are being sent to.
     └── 80_sbatchClonalDivisionSummary.sh
 ├── 14. Generate summary Output
 ├── 15. Report and communicate
-
 
 ```
 
