@@ -1,3 +1,5 @@
+R&D environment for testing. Current running version of the pipeline is under Coussens Lab OHSU organization
+
 TCRseq_tools
 ============
 
